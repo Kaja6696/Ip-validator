@@ -13,7 +13,6 @@ fun main() {
     val server = embeddedServer(Netty, port = 8080) {
         install(ContentNegotiation) {
             jackson {
-                // Konfigurace Jacksonu pro zpracování JSON
             }
         }
 
@@ -59,8 +58,6 @@ fun isValidIP(ip: String): Boolean {
 }
 
 fun getGeoLocation(ip: String): Map<String, String> {
-    // Zde by byla logika pro získání geolokace na základě IP adresy
-    // Vracíme jenom ukázkový JSON objekt
     return mapOf(
         "country" to "Czech Republic",
         "city" to "Prague",
@@ -70,7 +67,7 @@ fun getGeoLocation(ip: String): Map<String, String> {
 }
 
 fun calculateReputationScore(ip: String): Int {
-    var score = 100 // Počáteční skóre
+    var score = 100
 
     if (isProxy(ip)) {
         score -= 50
@@ -88,23 +85,18 @@ fun calculateReputationScore(ip: String): Int {
 }
 
 fun isProxy(ip: String): Boolean {
-    // Tady by bylo místo pro logiku, která by zjistila, zda je IP adresa proxy
     return false
 }
 
 fun isBlacklisted(ip: String): Boolean {
-    // Tady by bylo místo pro logiku, která by zjistila, zda je IP adresa na blacklistu
     return false
 }
 
 fun isCzSk(ip: String): Boolean {
-    // Tady by bylo místo pro logiku, která by zjistila, zda je IP adresa z ČR nebo SR
     return true
 }
 
 fun checkHealth(): Map<String, String> {
-    // Tady by byla logika pro zjištění stavu aplikace
-    // Vracíme jenom ukázkový JSON objekt
     return mapOf("status" to "OK")
 }
 
